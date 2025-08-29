@@ -2,6 +2,7 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import style from "./banner.modul.css"
 
 // Import Swiper styles
 import "swiper/css";
@@ -18,24 +19,27 @@ function Banner() {
       loop={true}
       autoplay={{ delay: 1500 }}
       modules={[Navigation, Autoplay]}
-      className="mySwiper home-slider"
+      className="mySwiper home-slider swiper-scrollbar-drag"
     >
       <SwiperSlide>
         <img
-          src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733562688/kjkgagebshif7vciiusc.jpg"
+          src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/landscapes/beach-boat.jpg"
           alt="Slide"
+          className={`style.slideImg `}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733720788/nxmmgtyxspf2918fhvpu.jpg"
+          src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/animals/three-dogs.jpg"
           alt="Slide"
+          className={style.slideImg}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733562366/jbaglvbhq8ieyk9tsevk.jpg"
+          src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127262/samples/animals/reindeer.jpg"
           alt="Slide"
+          className={style.slideImg }
         />
       </SwiperSlide>
     </Swiper>

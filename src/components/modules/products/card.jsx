@@ -1,12 +1,12 @@
+"use client";
 import Link from "next/link";
 import styles from "./product.module.css";
-import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 import { CiSearch, CiHeart } from "react-icons/ci";
 
 const Card = ({ image, title, price, rating }) => {
   return (
     <div className={styles.card}>
-      {/* کانتینر تصویر و دکمه/آیکون‌ها */}
       <div className={styles.details_container}>
         <img src={image} alt={title} />
         <div className={styles.icons}>
@@ -16,17 +16,15 @@ const Card = ({ image, title, price, rating }) => {
           </Link>
           <div>
             <CiHeart />
-            <p className={styles.tooltip}>افزودن به علاقه مندی ها</p>
+            <p className={styles.tooltip}>افزودن به علاقه‌مندی‌ها</p>
           </div>
         </div>
-        <button>افزودن به سبد خرید</button>
+        <button className={styles.addToCartButton}>افزودن به سبد خرید</button>
       </div>
-
-      {/* جزئیات کارت */}
       <div className={styles.details}>
-        <Link href={"/"}>{title}</Link>
-        <div>
-          {Array.from({ length: 5 }, (_, i) =>
+        <Link href="/">{title}</Link>
+        <div className={styles.rating}>
+          {Array.from({ length: 5 }).map((_, i) =>
             i < rating ? <FaStar key={i} /> : <FaRegStar key={i} />
           )}
         </div>

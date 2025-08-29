@@ -5,11 +5,11 @@ import AOSInit from "@/utils/aos";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "صفحه اصلی - SET Coffee | فروشگاه اینترنتی قهوه ست",
-  description: "Sabzlearn coffee project with next.js v13",
+  title: "lor_of_programme",
+  description: "mahbod hasti lord_of_programmer",
 
   icons: {
-    icon: "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/36190/coffee-logo-clipart-md.png",
+    icon: "https://res.cloudinary.com/dhff7ulyr/image/upload/v1756405118/mahbodlg_qljvds.png",
   },
 };
 
