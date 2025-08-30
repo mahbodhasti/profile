@@ -1,140 +1,107 @@
-.navbar main,
-.navbar_fixed main {
-  background: rgb(255, 255, 255);
-  transition: background-color 0.2s ease;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  color: black;
-  display: flex;
-  flex-direction: row-reverse;
-  padding-left: 30px;
-  padding-right: 30px;
-  height: 90px;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 1192px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  z-index: 9999;
-  justify-content: space-between;
-}
-.navbar:before {
-  content: "";
-  display: block;
-  height: 30px;
-}
-.navbar_fixed main {
-  height: 73px !important;
-  box-shadow: none !important;
-}
-.navbar_fixed {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  animation: fadeInDownBig 0.4s ease;
-  left: 0;
-  width: 100%;
-  top: 0;
-  background: white;
-  z-index: 999;
-}
-@keyframes fadeInDownBig {
-  0% {
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    transform: none;
-  }
-}
 .navbar {
-  position: absolute;
   width: 100%;
-  z-index: 300;
-}
-.links {
-  display: flex;
-  gap: 25px;
-  align-items: unset;
-  flex-direction: row-reverse;
-}
-.links li {
-  list-style: none;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: "shabnam", Arial, Helvetica, sans-serif;
-  color: rgb(52, 24, 14);
-  white-space: nowrap;
+  background: white;
+  padding: 10px 20px;
+  position: relative;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
-.navbar_icons {
+.navbar_fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar_content {
   display: flex;
-  gap: 30px;
-  margin-top: 0.3rem;
-  font-size: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
 }
-.navbar_icons a {
-  position: relative;
+
+.logo img {
+  height: 50px;
+  cursor: pointer;
 }
-.navbar_icons a span {
-  left: -9px;
-  border-radius: 100%;
-  top: -7px;
-  font-size: 0.5rem;
-  padding: 0.2rem 0.4rem;
-  background: rgb(52, 24, 14);
-  color: white;
-  position: absolute;
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.links li a:hover {
+  color: #0070f3;
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 500;
-  padding-bottom: 0.5rem;
-  font-family: "shabnam", Arial, Helvetica, sans-serif;
 }
-.dropdown a {
-  display: flex;
-  white-space: nowrap;
-  align-items: center;
+
+.dropdown_icon {
+  margin-left: 5px;
+  vertical-align: middle;
 }
-.dropdown_content a:hover {
-  color: rgb(52, 24, 14);
-}
-.dropdown_content a {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  cursor: pointer;
-  color: #848484;
-  transition: all 0.25s ease;
-  font-size: 14px;
-  justify-content: right !important;
-}
+
 .dropdown_content {
-  display: none !important;
-  top: 20px;
-  padding-top: 20px !important;
-  right: -3px;
-  text-align: right;
-  flex-direction: column;
+  display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 220px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 20px;
-  z-index: 1;
-}
-.dropdown_icons {
-  font-size: 0.7rem;
-  position: relative;
-  right: 3px;
-  color: rgba(82, 82, 82, 0.45);
+  top: 35px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown:hover .dropdown_content {
-  display: flex !important;
+  display: block;
 }
 
-.mad{
-  width: 100px;
-  height: 100px;
+.dropdown_content a {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown_content a:hover {
+  background: #f5f5f5;
+}
+
+.navbar_icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar_icons a {
+  position: relative;
+  color: #333;
+  font-size: 20px;
+}
+
+.navbar_icons span {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
 }

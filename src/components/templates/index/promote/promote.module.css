@@ -1,0 +1,169 @@
+.readable {
+  background-color: #f3f3f3;
+  font-family: shabnam, sans-serif;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1222px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* بخش اصلی */
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(51, 61, 152, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* بخش متن */
+.textContent {
+  background-color: rgb(184, 214, 229);
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: rgb(10, 32, 144);
+  text-align: center;
+}
+
+.textContent span {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.textContent p {
+  font-size: 16px;
+  margin-top: 0.8rem;
+  line-height: 1.8;
+}
+
+/* باشگاه مشتریان */
+.club {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+.club div {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  background: rgba(52, 52, 157, 0.5);
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+}
+
+.club span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.club p {
+  margin-top: 0.5rem;
+  font-size: 14px;
+}
+
+/* تصاویر */
+.imageWrapper {
+  text-align: center;
+}
+
+.imageWrapper img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* چرا قهوه ست */
+.whyCoffee {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  gap: 1.5rem;
+  background: rgba(97, 175, 189, 0.1);
+  border-radius: 12px;
+}
+
+.logo {
+  width: 80px;
+}
+
+.title {
+  color: #61afbd;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.description {
+  color: rgb(13, 52, 149);
+  font-size: 16px;
+  line-height: 1.8;
+  direction: rtl;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.redBtn,
+.btn {
+  background-color: #1c3a71;
+  border: 1px solid #1c5771;
+  color: rgba(199, 217, 224, 0.921);
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.redBtn:hover,
+.btn:hover {
+  background-color: #274a8e;
+}
+
+/* ریسپانسیو */
+@media (min-width: 768px) {
+  .mainSection {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+  }
+
+  .textContent {
+    text-align: right;
+    flex: 1;
+  }
+
+  .imageWrapper {
+    flex: 1;
+    text-align: center;
+  }
+
+  .club {
+    flex: 1;
+    margin-top: 0;
+  }
+
+  .whyCoffee {
+    flex: 1;
+    padding: 3rem;
+  }
+}

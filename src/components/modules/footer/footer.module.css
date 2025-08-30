@@ -1,0 +1,166 @@
+/* ===== پایه ===== */
+.footer {
+  background-color: #111;
+  padding: 40px 0;
+  font-family: shabnam, sans-serif;
+  color: #fff;
+}
+
+.footer main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ===== بخش توضیحات ===== */
+.descriptions {
+  width: 300px;
+  padding: 10px;
+  font-size: 15px;
+  direction: rtl;
+}
+
+.descriptions img {
+  width: 100%;
+  max-width: 180px;
+  margin-bottom: 15px;
+}
+
+.descriptions_title {
+  margin: 20px 0 30px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.description p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== مقالات فوتر ===== */
+.footer_article {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 15px;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.footer_article div div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  padding-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer_article_title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.footer h4 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* ===== لینک‌ها ===== */
+.links {
+  display: flex;
+  gap: 80px;
+  margin-right: 1rem;
+}
+
+.links li {
+  list-style: none;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.links li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links li a:hover {
+  color: #ddd;
+}
+
+/* ===== لایسنس‌ها ===== */
+.licenses {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  height: auto;
+}
+
+.licenses img {
+  cursor: pointer;
+  max-width: 100px;
+  height: auto;
+}
+
+.licenses img:nth-child(4) {
+  margin-left: 1rem;
+}
+
+/* ===== کپی‌رایت ===== */
+.copyRight {
+  font-family: shabnam;
+  direction: rtl;
+  padding: 20px 0;
+  font-size: 12px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.copyRight svg {
+  position: relative;
+  top: 4px;
+  right: 1px;
+  font-size: 1.3rem;
+}
+
+/* ===== خط جداکننده ===== */
+.footer hr {
+  border-color: #676767;
+  margin: 20px 0;
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 768px) {
+  .footer main {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+    gap: 2rem;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .licenses {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}
