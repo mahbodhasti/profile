@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import styles from "./Post.module.css";
+import styles from "./post.module.css";
 import Link from "next/link";
 
 export default function PostPage() {
