@@ -1,0 +1,190 @@
+/* -------------------- کارت اصلی -------------------- */
+.card {
+  width: 100%;
+  direction: rtl;
+  position: relative;
+  padding-top: 19px;
+  color: black;
+  box-sizing: border-box;
+}
+
+.card img {
+  width: 100%;
+  height: 220px; /* ارتفاع ثابت */
+  object-fit: cover; /* تصویر پر شود ولی نسبتش حفظ شود */
+  transition: 0.4s all ease-in;
+}
+
+.card span {
+  color: rgb(52, 24, 14);
+}
+
+/* -------------------- جزئیات داخل کارت -------------------- */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding-top: 5px;
+  justify-content: center;
+}
+
+.details svg {
+  color: orange;
+}
+
+.details div {
+  direction: ltr;
+}
+
+/* -------------------- کانتینر جزئیات -------------------- */
+.details_container {
+  position: relative;
+  margin-top: 5px;
+}
+
+.details_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.details_container:hover::before {
+  opacity: 1;
+}
+
+.details_container:hover img {
+  transform: scale(1.1);
+}
+
+.details_container:hover button {
+  visibility: visible;
+  left: 50%;
+  bottom: 50%;
+  height: max-content;
+  transform: translate(-50%, 50%);
+}
+
+.details_container:hover .icons {
+  visibility: visible;
+}
+
+/* -------------------- آیکون‌ها -------------------- */
+.icons {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: white;
+  font-size: 2rem;
+  display: grid;
+  gap: 10px;
+  z-index: 3;
+  visibility: hidden;
+  background-color: transparent;
+  transition: all 0.25s ease;
+}
+
+.icons svg {
+  cursor: pointer;
+}
+
+.icons a,
+.icons div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 4px;
+}
+
+.tooltip {
+  font-size: 13px;
+  line-height: 34px;
+  align-items: center;
+  opacity: 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0 12px;
+  white-space: nowrap;
+  border-radius: 4px;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.icons a:hover .tooltip,
+.icons div:hover .tooltip {
+  opacity: 1;
+}
+
+/* -------------------- دکمه روی عکس -------------------- */
+.details_container button {
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  position: absolute;
+  bottom: 0;
+  left: 120px;
+  width: max-content;
+  height: max-content;
+  visibility: hidden;
+  z-index: 3;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+/* -------------------- ریسپانسیو کارت‌ها با Grid -------------------- */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  justify-content: center;
+}
+
+/* کارت‌ها */
+.card {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* -------------------- جزئیات فونت ریسپانسیو -------------------- */
+@media (max-width: 600px) {
+  .details {
+    gap: 2px;
+    font-size: 12px;
+  }
+  .card {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .details {
+    gap: 3px;
+    font-size: 14px;
+  }
+  .card {
+    padding-top: 15px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .details {
+    gap: 6px;
+    font-size: 16px;
+  }
+  .card {
+    padding-top: 25px;
+    font-size: 18px;
+  }
+}

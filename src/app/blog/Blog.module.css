@@ -1,0 +1,117 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Vazir', sans-serif;
+  color: #333;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  background-color: #eee;
+  color: #333;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.backButton:hover { background-color: #ddd; }
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* فیلتر دسته‌بندی */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.filters button {
+  padding: 6px 12px;
+  border: 1px solid #0070f3;
+  background: white;
+  color: #0070f3;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filters button:hover { background-color: #0070f3; color: white; }
+.activeFilter { background-color: #0070f3; color: white; }
+
+/* کارت خبری */
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-5px); }
+
+.details_container {
+  position: relative;
+}
+.details_container img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.details_container:hover img { transform: scale(1.05); }
+
+.details_container button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.details_container:hover button { opacity: 1; }
+
+.details {
+  padding: 15px;
+}
+.details h2 { font-size: 1.2rem; margin-bottom: 8px; }
+.details .date { font-size: 0.9rem; color: #888; margin-bottom: 10px; }
+.details p { font-size: 1rem; line-height: 1.5; }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #0070f3;
+  background: white;
+  color: #0070f3;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pagination button:hover { background-color: #0070f3; color: white; }
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .details_container img { height: 150px; }
+  .filters { flex-wrap: wrap; }
+}
