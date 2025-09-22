@@ -40,7 +40,7 @@ function Navbar() {
           <li>  <Link href="/signup">ثبت نام</Link></li>
           <li>  <Link href="/login">ورود</Link></li>
           <li>  <Link href="/login">ثبت انلاین</Link></li>
-          
+              <li><Link href="chat">چت عمومی</Link></li>
           
 
           {/* Dropdown */}
@@ -50,7 +50,6 @@ function Navbar() {
             </Link>
             <div className={styles.dropdown_content}>
               {/* <Link href="/p-user/orders">سفارشات</Link> */}
-               <li><Link href="/category">فروشگاه</Link></li>
           <li><Link href="/blog">وبلاگ</Link></li>
               {/* <Link href="/p-user/wishlist">علاقه‌مندی‌ها</Link> */}
               {/* <Link href="/p-user/account-details">جزئیات اکانت</Link> */}
