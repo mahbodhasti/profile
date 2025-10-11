@@ -1,0 +1,39 @@
+import './globals.css';
+import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import AOSInit from './../utils/aos';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'مهبد هستی | Mahbod Hasti - طراحی وب، خلاقیت و ایده‌های نو',
+  description:
+    'وب‌سایت رسمی مهبد هستی | طراح وب و سازنده پروژه‌های خلاق با Next.js و Vercel. اینجا جایی برای ایده‌ها، تجربه‌ها و آموزش‌های من است.',
+  keywords:
+    'مهبد هستی, Mahbod Hasti, طراحی سایت, Next.js, Vercel, برنامه‌نویسی, وب, پروژه, آموزش برنامه نویسی, خلاقیت',
+  authors: [{ name: 'Mahbod Hasti' }],
+  viewport: 'width=device-width, initial-scale=1.0',
+  openGraph: {
+    title: 'مهبد هستی | Mahbod Hasti',
+    description: 'اینجا جایی برای پروژه‌ها، ایده‌ها و تجربه‌های من در دنیای وب است.',
+    url: 'https://mahbodhasti.ir/',
+    siteName: 'mahbodhasti.ir',
+    images: [
+      {
+        url: 'https://mahbodhasti.ir/cover.jpg',
+      },
+    ],
+    type: 'website',
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fa" dir="rtl">
+      <body className={`${inter.className} aos-init aos-animate`}>
+        <AOSInit />
+        {children}
+      </body>
+    </html>
+  );
+}

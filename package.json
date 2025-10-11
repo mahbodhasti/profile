@@ -17,6 +17,10 @@
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
+<<<<<<< HEAD
+=======
+    "lucide-react": "^0.545.0",
+>>>>>>> fcb3719 (Add current project files)
     "mongoose": "^7.5.0",
     "next": "13.4.0",
     "react": "latest",

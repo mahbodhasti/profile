@@ -1,6 +1,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
+<<<<<<< HEAD
   padding: 20px;
   font-family: "Vazir", sans-serif;
 }
@@ -27,4 +28,110 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
+=======
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+.backBtn:hover {
+  color: #3399ff;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* محصولات */
+.products {
+  flex: 1 1 65%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.productWrapper {
+  position: relative;
+}
+
+/* ثبت خرید */
+.addCartBtn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0070f3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.addCartBtn:hover {
+  background: #3399ff;
+}
+
+/* سبد خرید */
+.cart {
+  flex: 1 1 30%;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  max-height: 600px;
+  overflow-y: auto;
+}
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cartControls button {
+  margin-left: 5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background: #0070f3;
+  color: white;
+}
+.cartControls button:hover {
+  background: #3399ff;
+}
+.total {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ریسپانسیو */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .cart {
+    max-height: 300px;
+    margin-top: 20px;
+  }
+>>>>>>> fcb3719 (Add current project files)
 }

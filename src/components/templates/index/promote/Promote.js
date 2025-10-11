@@ -23,7 +23,11 @@ const Promote = () => {
 
           <div className={styles.imageWrapper}>
             <Image
+<<<<<<< HEAD
               src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/ecommerce/car-interior-design.jpg"
+=======
+              src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1759823222/dolphin_oyvboz.jpg"
+>>>>>>> fcb3719 (Add current project files)
               alt="car"
               width={300}
               height={300}
@@ -38,7 +42,11 @@ const Promote = () => {
           </div>
         </section>
 
+<<<<<<< HEAD
         {/* بخش دوم: چرا قهوه ست */}
+=======
+        
+>>>>>>> fcb3719 (Add current project files)
         <section data-aos="fade-up" className={styles.mainSection}>
           <div className={styles.imageWrapper}>
             <Image

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* -------------------- کارت اصلی -------------------- */
 .card {
   width: 100%;
@@ -188,3 +189,151 @@
     font-size: 18px;
   }
 }
+=======
+.card {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 10px;
+}
+.card:hover { transform: scale(1.03); }
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 60%; /* نسبت 5:3 */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.price {
+  color: #333;
+  font-weight: 500;
+}
+
+.option {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.addBtn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}.card {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 10px;
+}
+.card:hover { transform: scale(1.03); }
+
+.imageWrapper {
+  width: 100%;
+  padding-top: 60%; /* نسبت 5:3 */
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.price {
+  color: #333;
+  font-weight: 500;
+}
+
+.option {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.description {
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #222;
+}
+
+.addBtn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.addBtn:hover { background-color: #005bb5; }
+
+.addBtn:hover { background-color: #005bb5; }
+>>>>>>> fcb3719 (Add current project files)

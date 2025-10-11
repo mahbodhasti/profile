@@ -1,0 +1,84 @@
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #222;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.payment span {
+  font-weight: 600;
+  color: #444;
+}
+
+.date {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.status {
+  margin-top: 0.5rem;
+}
+
+.badge {
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 600;
+}
+
+.pending {
+  background: #ffc107;
+}
+
+.confirmed {
+  background: #28a745;
+}
+
+.canceled {
+  background: #dc3545;
+}
+
+.items {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.total {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #555;
+}

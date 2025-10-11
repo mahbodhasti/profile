@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { ChatMessage } from "../../types/chat";
 import styles from "./ChatMessage.module.css";
+<<<<<<< HEAD
+=======
+import Link from "next/link";
+>>>>>>> fcb3719 (Add current project files)
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -37,6 +41,10 @@ export default function ChatPage() {
 
   return (
     <div className={styles.page}>
+<<<<<<< HEAD
+=======
+      <h2><Link href="/" className={styles.backButton}>← برگشت به خانه</Link></h2>
+>>>>>>> fcb3719 (Add current project files)
       <h1 className={styles.title}>💬 Public Chat</h1>
 
       <form onSubmit={handleSubmit} className={styles.form}>

@@ -1,0 +1,28 @@
+.container { padding: 24px; max-width:1100px; margin:0 auto; }
+.title { text-align:center; color:#6a1b9a; margin-bottom:18px; }
+.grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+.cardWrapper { position:relative; }
+.descriptionBox {
+  position:absolute; inset:0; background:rgba(106,27,154,0.86); color:#fff;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; padding:12px; border-radius:8px; opacity:0; transition:opacity .2s;
+}
+.cardWrapper:hover .descriptionBox{ opacity:1; }
+.hoverBtns { display:flex; gap:8px; margin-top:8px; }
+.descriptionBox button { background:#ff9800; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; color:#fff; }
+.stickyCart {
+  position:fixed; bottom:20px; right:20px; background:#6a1b9a; color:#fff; padding:10px 14px; border-radius:10px; display:flex; gap:12px; z-index:80;
+}
+.stickyCart button { background:#ff9800; border:none; padding:6px 10px; border-radius:8px; cursor:pointer; color:#fff; }
+.cartModal { position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:100; }
+.cartContent { width:95%; max-width:520px; background:#fff; padding:18px; border-radius:10px; text-align:right; }
+.cartItem { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.06); }
+.total { font-weight:700; margin-top:12px; }
+.paymentText { margin-top:12px; color:#333; }
+.input { width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ddd; }
+.paymentActions { display:flex; gap:8px; margin-top:10px; }
+.paymentActions button { flex:1; background:#6a1b9a; color:#fff; border:none; padding:8px; border-radius:6px; cursor:pointer; }
+.paymentActions button:last-child { background:#ff9800; }
+.closeBtn { margin-top:10px; background:#ddd; border:none; padding:8px 10px; border-radius:6px; cursor:pointer; }
+@media (max-width:720px) {
+  .stickyCart { right:10px; left:10px; justify-content:space-between; }
+}

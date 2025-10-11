@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --bg-start: #0f1026;
   --bg-end:   #1a1c3b;
@@ -44,10 +45,25 @@
 @font-face {
   font-family: shabnam-Bold;
   src: url("/fonts/shabnam/Shabnam-Bold.woff");
+=======
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Shabnam', 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  direction: rtl;
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+>>>>>>> fcb3719 (Add current project files)
 }
 
 * {
   box-sizing: border-box;
+<<<<<<< HEAD
   padding: 0;
   margin: 0;
   font-family: shabnam;
@@ -238,3 +254,17 @@ a {
 
 
 
+=======
+}
+
+/* AOS تنظیمات پایه */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.8s;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+>>>>>>> fcb3719 (Add current project files)

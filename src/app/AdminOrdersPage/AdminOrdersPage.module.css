@@ -1,0 +1,74 @@
+.container {
+  padding: 2rem;
+  direction: rtl;
+  background: #f7f8fc;
+  min-height: 100vh;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  margin-bottom: 1.2rem;
+  padding: 1.2rem;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.confirmBtn {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.confirmBtn:hover {
+  background: #1f8a38;
+}
+
+.rejectBtn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.rejectBtn:hover {
+  background: #b92d3a;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  color: #f39c12;
+  font-weight: 500;
+}

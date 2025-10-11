@@ -28,7 +28,11 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
+<<<<<<< HEAD
 , "src/app/page.js"  ],
+=======
+, "src/app/page.js", "src/components/templates/index/latest/Latest.tsx"  ],
+>>>>>>> fcb3719 (Add current project files)
   "exclude": [
     "node_modules"
   ]
