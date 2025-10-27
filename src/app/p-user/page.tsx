@@ -22,17 +22,19 @@ export default function OrdersPage() {
 
   return (
     <div className={styles.container}>
-      <h2>سفارش‌های شما</h2>
-      {orders.length === 0 && <p>هیچ سفارشی ثبت نشده است.</p>}
+      <h2 className={styles.title}>سفارش‌های شما</h2>
+      {orders.length === 0 && <p className={styles.noOrders}>هیچ سفارشی ثبت نشده است.</p>}
       {orders.map(order => (
         <div key={order._id} className={styles.orderCard}>
-          <p>ایمیل: {order.email}</p>
-          <p>تراکنش: {order.transactionId}</p>
-          <p>وضعیت: <span className={styles[order.status]}>{order.status}</span></p>
+          <p className={styles.orderEmail}>ایمیل: {order.email}</p>
+          <p className={styles.orderTransaction}>تراکنش: {order.transactionId}</p>
+          <p className={styles.orderStatus}>
+            وضعیت: <span className={styles[order.status]}>{order.status}</span>
+          </p>
           <div className={styles.cartItems}>
             {order.cart.map(item => (
               <div key={item.id} className={styles.cartItem}>
-                <img src={item.image} alt={item.title} />
+                <img className={styles.cartItemImage} src={item.image} alt={item.title} />
                 <p>{item.title}</p>
                 <p>{item.price}</p>
               </div>
