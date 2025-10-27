@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./orders.module.css";
+import styles from "./orders.module.css"
 
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState([]);

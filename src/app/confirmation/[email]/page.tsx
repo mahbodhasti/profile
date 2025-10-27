@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./user.module.css";
+import styles from "./confirmation.module.css";
 
 export default function UserPage({ params }: { params: { email: string } }) {
   const [order, setOrder] = useState<any>(null);

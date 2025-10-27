@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa6";
 import styles from "./category.module.css"
-import Card from "../../components/modules/product/Product";
+import Card from "../../components/modules/ProductCard/ProductCard";
 
 export default function CategoryPage() {
   const products = [
