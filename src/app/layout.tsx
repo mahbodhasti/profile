@@ -1,4 +1,4 @@
-import style from './globals.css'
+import styles from './globals.css'
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Inter } from "next/font/google";

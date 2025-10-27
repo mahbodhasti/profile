@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "./myOrders.module.css"; // استایل دلخواهت
+import axios from "axios";
 
 interface OrderItem {
   productId: string;
@@ -12,61 +12,68 @@ interface OrderItem {
 interface Order {
   _id: string;
   userId: string;
-  email: string;
-  phone: string;
   items: OrderItem[];
   totalPrice: number;
   transactionId?: string;
   status: "pending" | "approved" | "rejected";
   createdAt: string;
+  email?: string;
+  phone?: string;
 }
 
-const MyOrders = ({ userId }: { userId: string }) => {
+export default function MyOrders({ userId }: { userId: string }) {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`/api/orders?userId=${userId}`);
-        const data = await res.json();
-        setOrders(data);
+        const res = await axios.get(`/api/orders?userId=${userId}`);
+        setOrders(res.data);
       } catch (err) {
+        setError("خطا در دریافت سفارش‌ها");
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
+
     fetchOrders();
   }, [userId]);
 
   if (loading) return <p>در حال بارگذاری سفارش‌ها...</p>;
+  if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-    <div className={styles.container}>
-      <h2>سفارش‌های شما</h2>
-      {orders.length === 0 && <p>سفارشی ثبت نشده است</p>}
+    <div style={{ padding: 20 }}>
+      <h2>سفارش‌های من</h2>
+      {orders.length === 0 && <p>هیچ سفارشی ثبت نشده</p>}
       {orders.map((order) => (
-        <div key={order._id} className={styles.orderCard}>
+        <div
+          key={order._id}
+          style={{
+            border: "1px solid #ccc",
+            padding: 10,
+            marginBottom: 20,
+            borderRadius: 8,
+          }}
+        >
+          <p>ایمیل: {order.email}</p>
+          <p>تلفن: {order.phone}</p>
+          <p>تراکنش: {order.transactionId}</p>
           <p>
-            <strong>ایمیل:</strong> {order.email}
-          </p>
-          <p>
-            <strong>شماره تماس:</strong> {order.phone}
-          </p>
-          <p>
-            <strong>تراکنش:</strong> {order.transactionId || "نامشخص"}
-          </p>
-          <p>
-            <strong>وضعیت:</strong>{" "}
+            وضعیت:{" "}
             <span
-              className={
-                order.status === "approved"
-                  ? styles.approved
-                  : order.status === "rejected"
-                  ? styles.rejected
-                  : styles.pending
-              }
+              style={{
+                color:
+                  order.status === "approved"
+                    ? "green"
+                    : order.status === "rejected"
+                    ? "red"
+                    : "orange",
+                fontWeight: "bold",
+              }}
             >
               {order.status === "pending"
                 ? "در انتظار"
@@ -75,7 +82,6 @@ const MyOrders = ({ userId }: { userId: string }) => {
                 : "رد شده"}
             </span>
           </p>
-          <h4>محصولات:</h4>
           <ul>
             {order.items.map((item) => (
               <li key={item.productId}>
@@ -84,12 +90,11 @@ const MyOrders = ({ userId }: { userId: string }) => {
             ))}
           </ul>
           <p>
-            <strong>جمع کل:</strong> {order.totalPrice} تومان
+            جمع کل:{" "}
+            {order.items.reduce((sum, i) => sum + i.price * i.quantity, 0)} تومان
           </p>
         </div>
       ))}
     </div>
   );
-};
-
-export default MyOrders;
+}
