@@ -1,16 +1,20 @@
+import React from "react";
+import Link from "next/link";
 import styles from "./footer.module.css";
 import { MdOutlineCopyright } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import Article from "./Article";
-import Link from "next/link";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <main className="container">
         {/* بخش توضیحات */}
         <section className={styles.descriptions}>
-          <img src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756405118/mahbodlg_qljvds.png" alt="لوگو مهبد هستی" />
+          <img
+            src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756405118/mahbodlg_qljvds.png"
+            alt="لوگو مهبد هستی"
+          />
           <p className={styles.descriptions_title}>
             مهبد هستی توسعه دهنده Full Stack
           </p>
@@ -33,11 +37,11 @@ const Footer = () => {
 
         {/* بخش مقالات */}
         <section>
-          <h4>جدیدترین نوشته ها</h4>
+          <h4>جدیدترین نوشته‌ها</h4>
           <Article
             href="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/people/bicycle.jpg"
             date="۱۷ آبان ۱۴۰۴"
-            comments="بدون دیدگاه"
+            comments={0}
             img="/images/sample.jpg"
             title="بالون"
           />
@@ -77,10 +81,18 @@ const Footer = () => {
 
         {/* لایسنس‌ها */}
         <div className={styles.licenses}>
-          
-          <img src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756558004/license1_e5gbsd.png" width={85} height={85} alt="لایسنس ۱" />
-         
-          <img src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756558018/license3_z4uemz.png" width={62} height={95} alt="لایسنس ۲" />
+          <img
+            src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756558004/license1_e5gbsd.png"
+            width={85}
+            height={85}
+            alt="لایسنس ۱"
+          />
+          <img
+            src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756558018/license3_z4uemz.png"
+            width={62}
+            height={95}
+            alt="لایسنس ۲"
+          />
         </div>
       </main>
 
@@ -89,8 +101,7 @@ const Footer = () => {
       {/* بخش کپی‌رایت */}
       <div className="container">
         <p className={styles.copyRight}>
-          2025 تمام حقوق متعلق است به مهبد هستی M{" "}
-          <strong></strong> | طراحی و اجرا{" "}
+          2025 تمام حقوق متعلق است به مهبد هستی M | طراحی و اجرا{" "}
           <strong>lord of programmer</strong>{" "}
           <MdOutlineCopyright />
         </p>

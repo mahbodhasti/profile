@@ -1,23 +1,28 @@
-.article div div {
-  display: flex;
-  justify-content: right;
-  gap: 14px;
-  color: rgba(35, 122, 181, 0.5);
-  padding-top: 0.5rem;
-}
 .article {
-  font-family: shabnam;
   display: flex;
-  gap: 15px;
+  gap: 0.5rem;
   align-items: center;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 0.8rem;
+}
 
-  flex-direction: row-reverse;
-  margin: 20px 0px;
+.article img {
+  border-radius: 6px;
+  object-fit: cover;
+  width: 75px;
+  height: 65px;
 }
+
 .title {
-  font-family: shabnam-Bold;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
 }
-.footer h4 {
-  margin-bottom: 15px;
-  font-family: shabnam-Bold;
+
+.meta {
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
 }

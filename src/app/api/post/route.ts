@@ -1,29 +1,35 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../../../lib/mongodb";
-import { Post } from "../../../../models/Posts";
+import Post from "../../../../models/Posts";
 
-
-
-
-export async function POST(req: Request) {
-  try {
-    const { title, content, author } = await req.json();
-    await connectDB();
-
-    const newPost = await Post.create({ title, content, author });
-    return NextResponse.json({ message: "Post created", post: newPost }, { status: 201 });
-    
-  } catch (err) {
-    return NextResponse.json({ error: "Failed to create post" }, { status: 500 });
-  }
+// GET همه پست‌ها
+export async function GET() {
+  await connectDB();
+  const posts = await Post.find({});
+  return NextResponse.json(posts);
 }
 
-export async function GET() {
-  try {
-    await connectDB();
-    const posts = await Post.find().sort({ createdAt: -1 }).exec(); // آخرین‌ها اول
-    return NextResponse.json(posts, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
-  }
+// POST ایجاد پست جدید (ادمین)
+export async function POST(req: NextRequest) {
+  await connectDB();
+  const data = await req.json();
+  const post = new Post(data);
+  await post.save();
+  return NextResponse.json({ success: true, post });
+}
+
+// PATCH ویرایش پست (ادمین)
+export async function PATCH(req: NextRequest) {
+  await connectDB();
+  const { id, updated } = await req.json();
+  const post = await Post.findByIdAndUpdate(id, updated, { new: true });
+  return NextResponse.json({ success: true, post });
+}
+
+// DELETE حذف پست (ادمین)
+export async function DELETE(req: NextRequest) {
+  await connectDB();
+  const { id } = await req.json();
+  await Post.findByIdAndDelete(id);
+  return NextResponse.json({ success: true });
 }
