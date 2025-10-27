@@ -1,8 +1,12 @@
-"use client";
-
-import UserOrderClient from "./UserOrderClient";
+import MyOrders from "../../MyOrder/page";
 
 
-export default function UserPage({ params }: { params: { userId: string } }) {
-  return <UserOrderClient userId={params.userId} />;
+interface PageProps {
+  params: {
+    userId: string;
+  };
+}
+
+export default function MyOrderPage({ params }: PageProps) {
+  return <MyOrders userId={params.userId} />;
 }
