@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import styles from "./myOrders.module.css"; // استایل دلخواهت
 
 interface OrderItem {
   productId: string;
@@ -11,6 +12,8 @@ interface OrderItem {
 interface Order {
   _id: string;
   userId: string;
+  email: string;
+  phone: string;
   items: OrderItem[];
   totalPrice: number;
   transactionId?: string;
@@ -18,23 +21,61 @@ interface Order {
   createdAt: string;
 }
 
-const MyOrders: React.FC<{ userId: string }> = ({ userId }) => {
+const MyOrders = ({ userId }: { userId: string }) => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/orders?userId=${userId}`)
-      .then((res) => res.json())
-      .then((data) => setOrders(data));
+    const fetchOrders = async () => {
+      try {
+        const res = await fetch(`/api/orders?userId=${userId}`);
+        const data = await res.json();
+        setOrders(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchOrders();
   }, [userId]);
 
+  if (loading) return <p>در حال بارگذاری سفارش‌ها...</p>;
+
   return (
-    <div>
-      <h2>سفارش‌های من</h2>
-      {orders.length === 0 && <p>سفارشی ثبت نشده</p>}
+    <div className={styles.container}>
+      <h2>سفارش‌های شما</h2>
+      {orders.length === 0 && <p>سفارشی ثبت نشده است</p>}
       {orders.map((order) => (
-        <div key={order._id} style={{ border: "1px solid #ccc", padding: 10, marginBottom: 10 }}>
-          <p>تراکنش: {order.transactionId}</p>
-          <p>وضعیت: {order.status}</p>
+        <div key={order._id} className={styles.orderCard}>
+          <p>
+            <strong>ایمیل:</strong> {order.email}
+          </p>
+          <p>
+            <strong>شماره تماس:</strong> {order.phone}
+          </p>
+          <p>
+            <strong>تراکنش:</strong> {order.transactionId || "نامشخص"}
+          </p>
+          <p>
+            <strong>وضعیت:</strong>{" "}
+            <span
+              className={
+                order.status === "approved"
+                  ? styles.approved
+                  : order.status === "rejected"
+                  ? styles.rejected
+                  : styles.pending
+              }
+            >
+              {order.status === "pending"
+                ? "در انتظار"
+                : order.status === "approved"
+                ? "تأیید شده"
+                : "رد شده"}
+            </span>
+          </p>
+          <h4>محصولات:</h4>
           <ul>
             {order.items.map((item) => (
               <li key={item.productId}>
@@ -42,7 +83,9 @@ const MyOrders: React.FC<{ userId: string }> = ({ userId }) => {
               </li>
             ))}
           </ul>
-          <p>جمع کل: {order.totalPrice} تومان</p>
+          <p>
+            <strong>جمع کل:</strong> {order.totalPrice} تومان
+          </p>
         </div>
       ))}
     </div>
