@@ -1,28 +1,26 @@
-// app/api/auth/signup/route.ts
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../../../../lib/mongodb";
-import { User } from "../../../../../models/User";
+import User from "../../../../../models/User";
 
-
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const { name, email, password } = await req.json();
     await connectDB();
 
-    const existingUser = await User.findOne({ email }).exec();
-    if (existingUser) {
-      return NextResponse.json({ error: "User already exists" }, { status: 400 });
+    const { email, password, name } = await req.json();
+
+    if (!email || !password || !name) {
+      return NextResponse.json({ error: "تمام فیلدها ضروری هستند" }, { status: 400 });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ name, email, password: hashedPassword });
+    // بررسی وجود کاربر
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return NextResponse.json({ error: "کاربر از قبل وجود دارد" }, { status: 400 });
+    }
 
-    return NextResponse.json(
-      { message: "User created successfully", user: newUser },
-      { status: 201 }
-    );
-  } catch (error) {
-    return NextResponse.json({ error: "Signup failed" }, { status: 500 });
+    const newUser = await User.create({ email, password, name });
+    return NextResponse.json({ user: newUser }, { status: 201 });
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message || "خطای سرور" }, { status: 500 });
   }
 }
