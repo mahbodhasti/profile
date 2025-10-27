@@ -27,7 +27,7 @@ export default function ConfirmationPage() {
   if (!order) return <p className={styles.error}>هیچ سفارشی یافت نشد</p>;
 
   return (
-    <div className={styles.confirmationContainer}>
+    <div className={styles.title}>
       <h2>وضعیت سفارش شما</h2>
       <div className={styles.infoBox}>
         <p>📧 ایمیل: {order.email}</p>

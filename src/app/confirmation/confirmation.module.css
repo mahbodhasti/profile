@@ -9,10 +9,11 @@
   text-align: center;
 }
 
-h2 {
+.title {
   color: #333;
   margin-bottom: 1rem;
 }
+
 
 .infoBox {
   background: #f8f9fa;
