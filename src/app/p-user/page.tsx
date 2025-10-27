@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./myOrders.module.css";
+import styles from "./Orders.module.css"
 
 export interface OrderItem {
   productId: string;
