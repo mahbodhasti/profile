@@ -12,7 +12,7 @@ interface OrderItem {
 
 interface Order {
   _id: string;
-  userId: string;
+  userId: number;
   items: OrderItem[];
   totalPrice: number;
   status: "pending" | "approved" | "rejected";
