@@ -19,7 +19,7 @@ interface Order {
   createdAt: string;
 }
 
-export default function MyOrders({ userId }: { userId: string }) {
+export default function MyOrders({ userId }: { userId: number }) {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
 
