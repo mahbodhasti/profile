@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectDB } from "../../../../lib/mongodb";
-import Order from "../../../../models/Order";
+import { connectDB } from "../../../../../lib/mongodb";
+import Order from "../../../../../models/Order";
 
 
 export async function POST(req: Request) {
@@ -15,10 +15,7 @@ export async function POST(req: Request) {
     }
 
     if (!items || items.length === 0) {
-      return NextResponse.json(
-        { message: "هیچ آیتمی انتخاب نشده" },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: "هیچ آیتمی انتخاب نشده" }, { status: 400 });
     }
 
     await connectDB();

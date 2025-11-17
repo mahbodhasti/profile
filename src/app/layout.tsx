@@ -1,8 +1,9 @@
 import styles from './globals.css'
-
+import { SessionProvider } from "next-auth/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Inter } from "next/font/google";
 import AOSInit from "./../utils/aos";
+import SessionProviderWrapper from '../components/providers/SessionProviderWrapper';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fa">
       <body className={inter.className}>
+       <SessionProviderWrapper>
         <AOSInit />
         {children}
+         </SessionProviderWrapper>
       </body>
     </html>
   );

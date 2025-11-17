@@ -2,22 +2,61 @@ import { NextResponse } from "next/server";
 import { connectDB } from "../../../../lib/mongodb";
 import Order from "../../../../models/Order";
 
+
 export async function POST(req: Request) {
   try {
+    const { email, phone, transactionId, items, totalPrice } = await req.json();
+
+    // اعتبارسنجی
+    if (!email || !phone || !transactionId) {
+      return NextResponse.json(
+        { message: "ایمیل، شماره تلفن و شماره تراکنش الزامی هستند" },
+        { status: 400 }
+      );
+    }
+
+    if (!items || !items.length) {
+      return NextResponse.json(
+        { message: "هیچ آیتمی انتخاب نشده" },
+        { status: 400 }
+      );
+    }
+
     await connectDB();
-    const body = await req.json();
-    const { userId, email, phone } = body;
 
     const newOrder = await Order.create({
-      userId,
       email,
       phone,
+      transactionId,
+      items,
+      totalPrice,
       status: "pending",
+      createdAt: new Date(),
     });
 
-    return NextResponse.json(newOrder, { status: 201 });
-  } catch (err) {
-    console.error("POST /api/orders error:", err);
-    return NextResponse.json({ message: "Error creating order" }, { status: 500 });
+    return NextResponse.json(
+      { ...newOrder.toObject(), userId: newOrder._id.toString() },
+      { status: 201 }
+    );
+  } catch (err: any) {
+    console.error("❌ POST /api/orders error:", err);
+    return NextResponse.json(
+      { message: "Error creating order", error: err.message ?? String(err) },
+      { status: 500 }
+    );
+  }
+}
+
+// GET همه سفارشات (اختیاری: برای ادمین)
+export async function GET() {
+  try {
+    await connectDB();
+    const orders = await Order.find().sort({ createdAt: -1 });
+    return NextResponse.json(orders);
+  } catch (err: any) {
+    return NextResponse.json(
+      { message: "Error fetching orders", error: err.message ?? String(err) },
+      { status: 500 }
+    );
   }
 }

@@ -1,14 +1,17 @@
-import mongoose, { Schema, models } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 
-const orderSchema = new Schema(
+const OrderSchema = new Schema(
   {
-    userId: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
+    transactionId: { type: String, required: true },
+    items: { type: Array, required: true },
+    totalPrice: { type: Number, required: true },
     status: { type: String, enum: ["pending", "approved", "rejected"], default: "pending" },
+    createdAt: { type: Date, default: Date.now },
   },
-  { timestamps: true }
+  { versionKey: false }
 );
 
-const Order = models.Order || mongoose.model("Order", orderSchema);
+const Order = models.Order || model("Order", OrderSchema);
 export default Order;

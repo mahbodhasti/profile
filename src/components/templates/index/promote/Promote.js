@@ -23,7 +23,7 @@ const Promote = () => {
 
           <div className={styles.imageWrapper}>
             <Image
-              src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/ecommerce/car-interior-design.jpg"
+              src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1759823222/dolphin_oyvboz.jpg"
               alt="car"
               width={300}
               height={300}

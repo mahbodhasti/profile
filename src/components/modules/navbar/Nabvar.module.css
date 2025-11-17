@@ -1,25 +1,27 @@
+/* Nabvar.module.css */
+
 .navbar {
-  width: 100%;
-  background: white;
-  padding: 10px 20px;
-  position: relative;
-  box-shadow: none;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.navbar_fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar_content {
   display: flex;
+  justify-content: center; /* ابتدا لوگو وسط */
   align-items: center;
-  justify-content: space-between;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #4b0082, #1c75bc, #ff7f00); /* رنگ‌ها کمی تیره‌تر */
+  color: #fff;
+  border-bottom: 3px solid #fff;
+  border-radius: 0 0 12px 12px;
+  font-family: "Arial", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.navbar.active {
+  justify-content: space-between; /* بعد از کلیک لوگو چپ و منو راست */
+}
+
+.logo {
+  transition: all 0.4s ease;
 }
 
 .logo img {
@@ -28,80 +30,96 @@
 }
 
 .links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
   list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  opacity: 0; /* ابتدا منو مخفی */
+  transition: opacity 0.4s ease;
 }
 
-.links li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s;
+.navbar.active .links {
+  opacity: 1; /* وقتی لوگو کلیک شد، منو نمایان */
 }
 
-.links li a:hover {
-  color: #0070f3;
-}
-
-.dropdown {
+.links li {
   position: relative;
 }
 
-.dropdown_icon {
-  margin-left: 5px;
-  vertical-align: middle;
+.links a {
+  text-decoration: none;
+  color: #eee;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.dropdown span:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .dropdown_content {
   display: none;
   position: absolute;
-  top: 35px;
+  top: 38px;
   right: 0;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  width: 150px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.85);
+  min-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  flex-direction: column;
+  z-index: 100;
+}
+
+.dropdown_content a,
+.dropdown_content button {
+  color: #fff;
+  padding: 8px 12px;
+  text-align: right;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+}
+
+.dropdown_content a:hover,
+.dropdown_content button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
 }
 
 .dropdown:hover .dropdown_content {
-  display: block;
-}
-
-.dropdown_content a {
-  display: block;
-  padding: 8px;
-  color: #333;
-  text-decoration: none;
-}
-
-.dropdown_content a:hover {
-  background: #f5f5f5;
-}
-
-.navbar_icons {
   display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
-.navbar_icons a {
-  position: relative;
-  color: #333;
-  font-size: 20px;
+.icons {
+  display: flex;
+  gap: 16px;
+  font-size: 1.3rem;
 }
 
-.navbar_icons span {
-  position: absolute;
-  top: -5px;
-  right: -10px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
+.icons a {
+  color: #fff;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.icons a:hover {
+  transform: scale(1.2);
+  color: #ffea00;
 }

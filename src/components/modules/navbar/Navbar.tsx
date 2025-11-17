@@ -1,78 +1,50 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import styles from  "./Nabvar.module.css";
+
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+import { useState } from "react";
+import styles from "./Nabvar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
 
-interface User {
-  email: string;
-  orders: { id: number; status: string; items: any[] }[];
-}
+export default function Navbar() {
+  const { data: session } = useSession();
+  const [active, setActive] = useState(false);
 
-function Navbar() {
-  const [isSticky, setIsSticky] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 105);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // فرضی: بعد از ثبت نام یا ورود، اطلاعات کاربر fetch شود
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
-  }, []);
+  const toggleNavbar = () => setActive(prev => !prev);
 
   return (
-    <nav className={`${styles.navbar} ${isSticky ? styles.navbar_fixed : ""}`}>
-      <main className={styles.navbar_content}>
-        {/* Logo */}
-        <div className={styles.logo}>
-          <Link href="/">
-            <img src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756405118/mahbodlg_qljvds.png" alt="Logo" />
-          </Link>
-        </div>
+    <nav className={`${styles.navbar} ${active ? styles.active : ""}`}>
+      <div className={styles.logo} onClick={toggleNavbar}>
+        <img src="https://res.cloudinary.com/dhff7ulyr/image/upload/v1756405118/mahbodlg_qljvds.png" alt="Logo" />
+      </div>
 
-        {/* Links */}
-        <ul className={styles.links}>
-          <li><Link href="/contact-us">تماس با ما</Link></li>
-          <li><Link href="/about-us">درباره ما</Link></li>
-          {!user && (
-            <>
-              <li><Link href="/signup">ثبت نام</Link></li>
-              <li><Link href="/login">ورود</Link></li>
-            </>
-          )}
+      <ul className={styles.links}>
+        <li><Link href="/about-us">درباره ما</Link></li>
+        <li><Link href="/contact-us">تماس با ما</Link></li>
 
-          {user && (
-            <li className={styles.dropdown}>
-              <span>
-                {user.email} <IoIosArrowDown className={styles.dropdown_icon} />
-              </span>
-              <div className={styles.dropdown_content}>
-                <Link href="/p-user/orders">سفارشات</Link>
-                <Link href="/chat/private">چت خصوصی</Link>
-              </div>
-            </li>
-          )}
-          <li><Link href="/blog">وبلاگ</Link></li>
-        </ul>
+        {!session ? (
+          <>
+            <li><Link href="/login">ورود</Link></li>
+            <li><Link href="/signup">ثبت‌نام</Link></li>
+          </>
+        ) : (
+          <li className={styles.dropdown}>
+            <span>
+              {session.user?.email} <IoIosArrowDown className={styles.dropdown_icon} />
+            </span>
+            <div className={styles.dropdown_content}>
+              <Link href={`/MyOrder/${session.user.id}`}>سفارش‌های من</Link>
+              <button onClick={() => signOut()}>خروج</button>
+            </div>
+          </li>
+        )}
+      </ul>
 
-        {/* Icons */}
-        <div className={styles.navbar_icons}>
-          <Link href="/cart">
-            <FaShoppingCart />
-          </Link>
-          <Link href="/wishlist">
-            <FaRegHeart />
-          </Link>
-        </div>
-      </main>
+      <div className={styles.icons}>
+        <Link href="/cart"><FaShoppingCart /></Link>
+        <Link href="/wishlist"><FaRegHeart /></Link>
+      </div>
     </nav>
   );
 }
-
-export default Navbar;

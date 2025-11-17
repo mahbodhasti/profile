@@ -31,7 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/page.tsx"
-  ],
+, "src/app/api/admin/orders/route.ts"  ],
   "exclude": [
     "node_modules"
   ]
