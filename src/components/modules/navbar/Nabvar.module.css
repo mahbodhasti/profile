@@ -2,14 +2,13 @@
 
 .navbar {
   display: flex;
-  justify-content: center; /* ابتدا لوگو وسط */
+  justify-content: center;
   align-items: center;
   padding: 12px 24px;
-  background: linear-gradient(90deg, #4b0082, #1c75bc, #ff7f00); /* رنگ‌ها کمی تیره‌تر */
+  background: linear-gradient(90deg, #4b0082, #1c75bc, #ff7f00);
   color: #fff;
   border-bottom: 3px solid #fff;
   border-radius: 0 0 12px 12px;
-  font-family: "Arial", sans-serif;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -17,16 +16,17 @@
 }
 
 .navbar.active {
-  justify-content: space-between; /* بعد از کلیک لوگو چپ و منو راست */
-}
-
-.logo {
-  transition: all 0.4s ease;
+  justify-content: space-between;
 }
 
 .logo img {
   height: 50px;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
 }
 
 .links {
@@ -34,12 +34,12 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  opacity: 0; /* ابتدا منو مخفی */
+  opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .navbar.active .links {
-  opacity: 1; /* وقتی لوگو کلیک شد، منو نمایان */
+  opacity: 1;
 }
 
 .links li {
@@ -51,18 +51,20 @@
   color: #eee;
   padding: 6px 12px;
   border-radius: 6px;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .links a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* ------------------ DROPDOWN ------------------ */
+
 .dropdown span {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding: 6px 12px;
   border-radius: 6px;
   transition: background 0.3s;
@@ -72,17 +74,39 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* فلش چرخشی */
+.dropdown_icon {
+  transition: transform 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* حالت بسته */
 .dropdown_content {
-  display: none;
-  position: absolute;
-  top: 38px;
-  right: 0;
-  background: rgba(0, 0, 0, 0.85);
-  min-width: 150px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: flex;
   flex-direction: column;
-  z-index: 100;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.85);
+  position: absolute;
+  top: 40px;
+  right: 0;
+  min-width: 160px;
+  border-radius: 8px;
+  padding: 8px 0;
+  gap: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* حالت باز */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown_content a,
@@ -90,12 +114,11 @@
   color: #fff;
   padding: 8px 12px;
   text-align: right;
-  border: none;
   background: none;
-  width: 100%;
+  border: none;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s;
+  width: 100%;
+  transition: 0.3s;
 }
 
 .dropdown_content a:hover,
@@ -104,9 +127,7 @@
   border-radius: 6px;
 }
 
-.dropdown:hover .dropdown_content {
-  display: flex;
-}
+/* ------------------ ICONS ------------------ */
 
 .icons {
   display: flex;
@@ -116,7 +137,7 @@
 
 .icons a {
   color: #fff;
-  transition: transform 0.2s, color 0.2s;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .icons a:hover {

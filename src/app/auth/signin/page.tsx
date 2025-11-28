@@ -21,37 +21,33 @@ export default function SignInPage() {
     });
 
     if (res?.error) {
-      setError("ایمیل یا رمز عبور اشتباه است");
+      setError("ایمیل یا رمز اشتباه است");
     } else {
-      router.push("/MyOrder"); // بعد از لاگین هدایت به سفارش‌ها
+      router.push("/");
     }
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto", padding: 20, border: "1px solid #ccc", borderRadius: 10 }}>
-      <h2 style={{ textAlign: "center", marginBottom: 20 }}>ورود به حساب کاربری</h2>
+    <div style={{ maxWidth: 400, margin: "50px auto" }}>
+      <h2>ورود</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="ایمیل"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={{ width: "100%", marginBottom: 10, padding: 8, borderRadius: 6 }}
-          required
-        />
-        <input
-          type="password"
-          placeholder="رمز عبور"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ width: "100%", marginBottom: 10, padding: 8, borderRadius: 6 }}
-          required
-        />
-        <button type="submit" style={{ width: "100%", padding: 10, borderRadius: 6, background: "#6d28d9", color: "#fff" }}>
-          ورود
-        </button>
+      <input
+  type="email"
+  placeholder="ایمیل"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+/>
+
+<input
+  type="password"
+  placeholder="رمز"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+/>
+
+        <button type="submit">ورود</button>
       </form>
-      {error && <p style={{ color: "red", marginTop: 10 }}>{error}</p>}
+      {error && <p>{error}</p>}
     </div>
   );
 }
