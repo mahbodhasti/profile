@@ -1,0 +1,74 @@
+.container {
+  padding: 40px;
+  background: linear-gradient(135deg, #4b0082, #ffbf00);
+  color: white;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.noOrders {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 20px;
+  color: #eee;
+}
+
+.orderCard {
+  background: white;
+  color: black;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.orderEmail,
+.orderTransaction,
+.orderStatus {
+  margin: 5px 0;
+}
+
+.cartItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cartItem {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.cartItemImage {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+/* وضعیت سفارش‌ها */
+.pending {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.approved {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.rejected {
+  color: #f44336;
+  font-weight: bold;
+}

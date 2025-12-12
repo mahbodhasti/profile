@@ -1,0 +1,30 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Vazir", sans-serif;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #0070f3;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}

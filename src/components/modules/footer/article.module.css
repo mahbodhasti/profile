@@ -1,0 +1,28 @@
+.article {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 0.8rem;
+}
+
+.article img {
+  border-radius: 6px;
+  object-fit: cover;
+  width: 75px;
+  height: 65px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,92 @@
+.stickyCart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.stickyCart h4 {
+  text-align: center;
+  margin-bottom: 12px;
+  color: #2b8a3e;
+}
+
+.cartList {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background: #f8f9fa;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.info {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.info h5 {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #333;
+}
+
+.info p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.removeBtn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #2b8a3e;
+}
+
+.checkoutBtn {
+  margin-top: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, #2b8a3e, #48b059);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkoutBtn:hover {
+  background: linear-gradient(135deg, #267a37, #3f9c4f);
+}

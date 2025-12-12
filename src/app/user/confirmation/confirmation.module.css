@@ -1,0 +1,50 @@
+.confirmationContainer {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  text-align: center;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.infoBox {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+.pending {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.approved {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.rejected {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  color: #777;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

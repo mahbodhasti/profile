@@ -1,0 +1,122 @@
+/* Signup.module.css */
+
+/* کارت شیشه‌ای و پالت رنگ */
+.page {
+  min-height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(1200px 800px at 10% 10%, #232b63 0%, transparent 50%),
+              radial-gradient(900px 700px at 90% 20%, #173a67 0%, transparent 55%),
+              linear-gradient(160deg, #0f1026, #1a1c3b);
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  width: 480px;
+  height: 480px;
+  filter: blur(90px);
+  opacity: 0.5;
+  z-index: 0;
+}
+.page::before {
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle at 30% 30%, #7c83ff, transparent 60%);
+}
+.page::after {
+  bottom: -140px;
+  right: -120px;
+  background: radial-gradient(circle at 70% 70%, #5ad0ff, transparent 60%);
+}
+
+/* کارت فرم */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(45, 55, 99, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+  color: #e8ecff;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+/* عنوان */
+.title {
+  margin: 0 0 16px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e8ecff;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* فرم */
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+/* ورودی‌ها */
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(20, 24, 60, 0.35);
+  color: #e8ecff;
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.input::placeholder {
+  color: #b9c1ff;
+}
+.input:focus {
+  border-color: rgba(124, 131, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(124, 131, 255, 0.18);
+  background: rgba(30, 36, 80, 0.45);
+}
+
+/* دکمه */
+.button {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(135deg, rgba(124,131,255,0.9), rgba(90,208,255,0.9));
+  color: #0b1029;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.06s ease, filter 0.2s ease, box-shadow 0.2s ease;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 25px rgba(92, 140, 255, 0.25);
+  text-align: center;
+}
+.button:hover {
+  filter: brightness(1.04);
+}
+.button:active {
+  transform: translateY(1px);
+}
+
+/* پیام */
+.message {
+  margin-top: 10px;
+  color: #ff6b6b;
+  font-weight: 600;
+}

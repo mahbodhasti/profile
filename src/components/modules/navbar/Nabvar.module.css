@@ -1,0 +1,146 @@
+/* Nabvar.module.css */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #4b0082, #1c75bc, #ff7f00);
+  color: #fff;
+  border-bottom: 3px solid #fff;
+  border-radius: 0 0 12px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.navbar.active {
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.navbar.active .links {
+  opacity: 1;
+}
+
+.links li {
+  position: relative;
+}
+
+.links a {
+  text-decoration: none;
+  color: #eee;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------ DROPDOWN ------------------ */
+
+.dropdown span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.dropdown span:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* فلش چرخشی */
+.dropdown_icon {
+  transition: transform 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* حالت بسته */
+.dropdown_content {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.85);
+  position: absolute;
+  top: 40px;
+  right: 0;
+  min-width: 160px;
+  border-radius: 8px;
+  padding: 8px 0;
+  gap: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* حالت باز */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown_content a,
+.dropdown_content button {
+  color: #fff;
+  padding: 8px 12px;
+  text-align: right;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.dropdown_content a:hover,
+.dropdown_content button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+
+/* ------------------ ICONS ------------------ */
+
+.icons {
+  display: flex;
+  gap: 16px;
+  font-size: 1.3rem;
+}
+
+.icons a {
+  color: #fff;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icons a:hover {
+  transform: scale(1.2);
+  color: #ffea00;
+}

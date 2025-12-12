@@ -1,0 +1,14 @@
+/* confirmation.module.css */
+.confirmationContainer {
+  max-width: 500px;
+  margin: auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.confirmationContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

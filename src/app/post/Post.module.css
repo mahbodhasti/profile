@@ -1,0 +1,25 @@
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}

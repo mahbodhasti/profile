@@ -1,0 +1,121 @@
+.card {
+  width: 100%;
+  direction: rtl;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.4s all ease-in;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding-top: 5px;
+  justify-content: center;
+}
+
+.details a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.details .rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  color: orange;
+}
+
+.details span {
+  color: rgb(52, 24, 14);
+  font-weight: bold;
+}
+
+.details_container {
+  position: relative;
+  margin-top: 5px;
+}
+
+.details_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.details_container:hover::before {
+  opacity: 1;
+}
+
+.details_container:hover img {
+  transform: scale(1.1);
+}
+
+.icons {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  display: grid;
+  gap: 10px;
+  z-index: 3;
+  visibility: hidden;
+  transition: 0.25s ease;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.details_container:hover .icons {
+  visibility: visible;
+}
+
+.tooltip {
+  font-size: 13px;
+  line-height: 28px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.3s;
+  white-space: nowrap;
+  position: relative;
+}
+
+.icons a:hover .tooltip,
+.icons div:hover .tooltip {
+  opacity: 1;
+}
+
+.addToCartButton {
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.details_container:hover .addToCartButton {
+  visibility: visible;
+}
