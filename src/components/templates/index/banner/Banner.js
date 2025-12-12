@@ -2,7 +2,7 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import style from "./banner.modul.css"
+import style from "./banner.module.css"
 
 // Import Swiper styles
 import "swiper/css";

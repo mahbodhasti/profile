@@ -17,7 +17,7 @@
     "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "next"
@@ -30,8 +30,10 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/page.tsx"
-, "src/app/api/admin/orders/route.ts"  ],
+    "src/app/page.tsx",
+    "src/app/api/admin/orders/route.ts",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
