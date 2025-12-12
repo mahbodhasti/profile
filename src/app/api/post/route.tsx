@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../../../lib/mongodb";
 import Post from "../../../../models/Posts";
-import sttyle from "./post.module.css";
+
 
 // GET همه پست‌ها
 export async function GET() {
